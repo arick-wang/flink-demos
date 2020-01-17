@@ -1,17 +1,13 @@
 package com.znv.kafka;
 
-import org.apache.flink.api.common.io.OutputFormat;
-import org.apache.flink.api.common.serialization.DeserializationSchema;
+import com.znv.StringUtil;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
-import org.apache.flink.streaming.api.functions.sink.SinkFunction;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 
-import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -44,7 +40,8 @@ public class FlinkKafkaConsumerService {
         @Override
         public void invoke(String value, Context context) {
             System.out.println("one time");
-            System.out.println(value);
+            String reverse = StringUtil.reverse(value);
+            System.out.println(reverse);
         }
     }
 
