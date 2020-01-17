@@ -1,5 +1,5 @@
 # flink-demos
-some flink demos for package
+some flink package demos
 
 # use method
 1. import project into your idea
